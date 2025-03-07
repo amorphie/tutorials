@@ -24,10 +24,10 @@
         ],
         "functions": [
             {
-                "key": "get-available-saving-currencies",
+                "key": "checking-currencies",
                 "flow": "functions",
                 "domain": "account",
-                "version": "1.0"
+                "version": "1.0.0"
             },
             {
                 "key": "get-branch-list",
