@@ -15,13 +15,13 @@
         },
         "mapping": {
             "input": {
-                "header.Accept-Language": "request.header.Accept-Language",
-                "header.ClientInfo": "request.header.UserAgent",
-                "header.Customer": "request.header.scope"
+                "$header.Accept-Language": "$request.$header.Accept-Language",
+                "$header.ClientInfo": "$request.$header.UserAgent",
+                "$header.Customer": "$request.$header.scope"
             },
             "output": {
-                "response.*": "response.header.*",
-                "response.body": "response.body"
+                "$response.*": "$response.$header.*",
+                "$response.$body": "$response.$body"
             }
         }
     }

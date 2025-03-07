@@ -15,13 +15,13 @@
         },
         "mapping": {
             "input": {
-                "route.tckn": "instance.data.attributes.customer.citizenshipNumber",
-                "request.body.accountName": "instance.data.attributes.name",
-                "request.body.currency": "instance.data.attributes.currency"
+                "$route.tckn": "$instance.$data.attributes.customer.citizenshipNumber",
+                "$request.$body.accountName": "$instance.$data.attributes.name",
+                "$request.$body.currency": "$instance.$data.attributes.currency"
             },
             "output": {
-                "instance.data.attributes.iban": "response.body.iban",
-                "instance.data.attributes.account": "response.body.hesapno"
+                "$instance.$data.attributes.iban": "$response.$body.iban",
+                "$instance.$data.attributes.account": "$response.$body.hesapno"
             }
         }
     }
