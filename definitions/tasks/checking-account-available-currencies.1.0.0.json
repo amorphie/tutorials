@@ -1,0 +1,27 @@
+{
+    "key": "checking-account-available-currencies",
+    "domain": "account",
+    "version": "1.0.0",
+    "tags": [
+        "account",
+        "checking"
+    ],
+    "attributes": {
+        "binding": "bindings.http",
+        "configuration":"fora-services",
+        "metadata": {
+            "url": "/fora/DigitalServices/AccountService.svc/accounts/utilities/availableCurrencies/checking"
+        },
+        "mapping": {
+            "input": {
+                "header.Accept-Language": "request.header.Accept-Language",
+                "header.ClientInfo": "request.header.UserAgent",
+                "header.Customer": "request.header.scope"
+            },
+            "output": {
+                "response.*": "response.header.*",
+                "response.body": "response.body"
+            }
+        }
+    }
+}

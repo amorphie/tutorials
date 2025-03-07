@@ -1,0 +1,221 @@
+{
+    "key": "open-checking-account",
+    "domain": "account",
+    "version": "1.0",
+    "tags": [
+        "account",
+        "deposit"
+    ],
+    "attributes": {
+        "timeout": {
+            "duration": "PT20M",
+            "target": "timeout"
+        },
+        "type": "flow",
+        "labels": [
+            {
+                "label": "New Checking Account",
+                "language": "en"
+            },
+            {
+                "label": "Yeni Vadesiz Hesap",
+                "language": "tr"
+            }
+        ],
+        "functions": [
+            {
+                "key": "get-available-saving-currencies",
+                "flow": "functions",
+                "domain": "account",
+                "version": "1.0"
+            },
+            {
+                "key": "get-branch-list",
+                "flow": "functions",
+                "domain": "organization",
+                "version": "1.0"
+            }
+        ],
+        "sharedTransitions": [
+            {
+                "key": "cancel",
+                "type": "cancel",
+                "labels": [
+                    {
+                        "label": "Iptal",
+                        "language": "tr"
+                    },
+                    {
+                        "label": "Cancel",
+                        "language": "en"
+                    }
+                ],
+                "target": "cancel",
+                "versionStrategy": "increaseMinor",
+                "availableIn": [
+                    "input-data",
+                    "approval"
+                ]
+            }
+        ],
+        "startTransition": {
+            "key": "start",
+            "target": "input-data",
+            "versionStrategy": "increaseMinor"
+        },
+        "states": [
+            {
+                "key": "input-data",
+                "type": "wizard",
+                "versionStrategy": "noAction",
+                "labels": [
+                    {
+                        "label": "Vadesiz Hesap Acilisi",
+                        "language": "tr"
+                    },
+                    {
+                        "label": "Opening Deposit Account",
+                        "language": "en"
+                    }
+                ],
+                "transitions": [
+                    {
+                        "key": "submit",
+                        "type": "forward",
+                        "labels": [
+                            {
+                                "label": "Devam",
+                                "language": "tr"
+                            },
+                            {
+                                "label": "Continue",
+                                "language": "en"
+                            }
+                        ],
+                        "target": "approval",
+                        "versionStrategy": "noAction",
+                        "views": [
+                            {
+                                "key": "open-deposit-account-input",
+                                "flow": "views",
+                                "domain": "account",
+                                "version": "1.0"
+                            }
+                        ],
+                        "onExecuteTasks": []
+                    }
+                ]
+            },
+            {
+                "key": "approval",
+                "versionStrategy": "noAction",
+                "labels": [
+                    {
+                        "label": "Hesap Acilis Onayi",
+                        "language": "tr"
+                    },
+                    {
+                        "label": "Account Opening Approval",
+                        "language": "en"
+                    }
+                ],
+                "transitions": [
+                    {
+                        "key": "approve",
+                        "type": "forward",
+                        "labels": [
+                            {
+                                "label": "Onayla",
+                                "language": "tr"
+                            },
+                            {
+                                "label": "Approve",
+                                "language": "en"
+                            }
+                        ],
+                        "target": "approval",
+                        "views": [
+                            {
+                                "key": "open-deposit-account-input",
+                                "flow": "views",
+                                "domain": "account",
+                                "version": "1.0"
+                            }
+                        ],
+                        "onExecuteTasks": []
+                    }
+                ],
+                "type": "wizard"
+            },
+            {
+                "key": "completed",
+                "versionStrategy": "noAction",
+                "labels": [
+                    {
+                        "label": "Vadesiz Hesap",
+                        "language": "tr"
+                    },
+                    {
+                        "label": "Deposit Account",
+                        "language": "en"
+                    }
+                ],
+                "views": [
+                    {
+                        "key": "open-deposit-account-completed",
+                        "flow": "views",
+                        "domain": "account",
+                        "version": "1.0"
+                    }
+                ],
+                "type": "finish"
+            },
+            {
+                "key": "canceled",
+                "versionStrategy": "noAction",
+                "labels": [
+                    {
+                        "label": "Iptal",
+                        "language": "tr"
+                    },
+                    {
+                        "label": "Canceled",
+                        "language": "en"
+                    }
+                ],
+                "views": [
+                    {
+                        "key": "open-deposit-account-canceled",
+                        "flow": "views",
+                        "domain": "account",
+                        "version": "1.0"
+                    }
+                ],
+                "type": "finish"
+            },
+            {
+                "key": "timeout",
+                "versionStrategy": "noAction",
+                "labels": [
+                    {
+                        "label": "Zamanasimi",
+                        "language": "tr"
+                    },
+                    {
+                        "label": "Timeout",
+                        "language": "en"
+                    }
+                ],
+                "views": [
+                    {
+                        "key": "open-deposit-account-timeout",
+                        "flow": "views",
+                        "domain": "account",
+                        "version": "1.0"
+                    }
+                ],
+                "type": "finish"
+            }
+        ]
+    }
+}
