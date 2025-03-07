@@ -1,0 +1,29 @@
+{
+    "key": "checking-currencies",
+    "domain": "account",
+    "version": "1.0.0",
+    "tags": [
+        "account",
+        "checking"
+    ],
+    "attributes": {
+        "scope": "domain | workflow | instance",
+        "task": {
+            "key": "checking-account-available-currencies",
+            "flow": "tasks",
+            "domain": "account",
+            "version": "1.0.0"
+        },
+        "mapping": {
+            "input": {
+                "#header.Accept-Language": "#request.#header.Accept-Language",
+                "#header.ClientInfo": "#request.#header.UserAgent",
+                "#header.Customer": "#request.#header.scope"
+            },
+            "output": {
+                "#response.#header.app": "#response.#header.appname + #response.#header.appversiyon",
+                "#response.#body.$": "$response.$body.$"
+            }
+        }
+    }
+}

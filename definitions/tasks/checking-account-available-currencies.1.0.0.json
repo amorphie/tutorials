@@ -12,17 +12,6 @@
         "metadata": {
             "url": "/fora/DigitalServices/AccountService.svc/accounts/utilities/availableCurrencies/checking",
             "operation": "get"
-        },
-        "mapping": {
-            "input": {
-                "$header.Accept-Language": "$request.$header.Accept-Language",
-                "$header.ClientInfo": "$request.$header.UserAgent",
-                "$header.Customer": "$request.$header.scope"
-            },
-            "output": {
-                "$response.*": "$response.$header.*",
-                "$response.$body": "$response.$body"
-            }
         }
     }
 }

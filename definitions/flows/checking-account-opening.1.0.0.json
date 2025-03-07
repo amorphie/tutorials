@@ -4,7 +4,7 @@
     "version": "1.0",
     "tags": [
         "account",
-        "deposit"
+        "checking"
     ],
     "attributes": {
         "timeout": {
@@ -74,7 +74,7 @@
                         "language": "tr"
                     },
                     {
-                        "label": "Opening Deposit Account",
+                        "label": "Opening checking Account",
                         "language": "en"
                     }
                 ],
@@ -96,7 +96,7 @@
                         "versionStrategy": "noAction",
                         "views": [
                             {
-                                "key": "open-deposit-account-input",
+                                "key": "open-checking-account-input",
                                 "flow": "views",
                                 "domain": "account",
                                 "version": "1.0"
@@ -133,16 +133,36 @@
                                 "language": "en"
                             }
                         ],
-                        "target": "approval",
+                        "target": "completed",
                         "views": [
                             {
-                                "key": "open-deposit-account-input",
+                                "key": "open-checking-account-approve",
                                 "flow": "views",
                                 "domain": "account",
                                 "version": "1.0"
                             }
                         ],
-                        "onExecuteTasks": []
+                        "onExecuteTasks": [
+                            {
+                                "task": {
+                                    "key": "checking-account-create",
+                                    "flow": "tasks",
+                                    "domain": "account",
+                                    "version": "1.0.0"
+                                },
+                                "mapping": {
+                                    "input": {
+                                        "#route.tckn": "#instance.#data.$.attributes.customer.citizenshipNumber",
+                                        "#request.#body.accountName": "#instance.#data.$.attributes.name",
+                                        "#request.#body.currency": "#instance.#data.$.attributes.currency"
+                                    },
+                                    "output": {
+                                        "#instance.#data.$.attributes.iban": "#response.#body.$.iban",
+                                        "#instance.#data.$.attributes.account": "#response.#body.$.hesapno"
+                                    }
+                                }
+                            }
+                        ]
                     }
                 ],
                 "type": "wizard"
@@ -156,13 +176,13 @@
                         "language": "tr"
                     },
                     {
-                        "label": "Deposit Account",
+                        "label": "checking Account",
                         "language": "en"
                     }
                 ],
                 "views": [
                     {
-                        "key": "open-deposit-account-completed",
+                        "key": "open-checking-account-completed",
                         "flow": "views",
                         "domain": "account",
                         "version": "1.0"
@@ -185,7 +205,7 @@
                 ],
                 "views": [
                     {
-                        "key": "open-deposit-account-canceled",
+                        "key": "open-checking-account-canceled",
                         "flow": "views",
                         "domain": "account",
                         "version": "1.0"
@@ -208,7 +228,7 @@
                 ],
                 "views": [
                     {
-                        "key": "open-deposit-account-timeout",
+                        "key": "open-checking-account-timeout",
                         "flow": "views",
                         "domain": "account",
                         "version": "1.0"
