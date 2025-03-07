@@ -8,9 +8,10 @@
     ],
     "attributes": {
         "binding": "bindings.http",
-        "configuration":"fora-services",
+        "configuration": "fora-services",
         "metadata": {
-            "url": "/fora/DigitalServices/AccountService.svc/accounts/utilities/availableCurrencies/checking"
+            "url": "/fora/DigitalServices/AccountService.svc/accounts/utilities/availableCurrencies/checking",
+            "operation": "get"
         },
         "mapping": {
             "input": {

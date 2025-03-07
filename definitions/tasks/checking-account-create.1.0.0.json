@@ -1,0 +1,28 @@
+{
+    "key": "checking-account-create",
+    "domain": "account",
+    "version": "1.0.0",
+    "tags": [
+        "account",
+        "checking"
+    ],
+    "attributes": {
+        "binding": "bindings.http",
+        "configuration": "fora-services",
+        "metadata": {
+            "url": "/fora/DigitalServices/AccountService.svc/accounts/checking/new/{tckn}",
+            "operation": "post"
+        },
+        "mapping": {
+            "input": {
+                "route.tckn": "instance.data.attributes.customer.citizenshipNumber",
+                "request.body.accountName": "instance.data.attributes.name",
+                "request.body.currency": "instance.data.attributes.currency"
+            },
+            "output": {
+                "instance.data.attributes.iban": "response.body.iban",
+                "instance.data.attributes.account": "response.body.hesapno"
+            }
+        }
+    }
+}
