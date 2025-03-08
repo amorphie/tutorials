@@ -1,0 +1,116 @@
+{
+    "info": {
+        "name": "Account Workflows API Tests",
+        "description": "Test collection for account workflow operations",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Checking Account Opening Flow",
+            "item": [
+                {
+                    "name": "Start Checking Account Opening Flow",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {{access_token}}"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"key\": null,\n    \"version\": null,\n    \"tags\": null,\n    \"data\": null\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/account/workflows/checking-account-opening/instances/{{instance_id}}/start?sync&version=1.0",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "account",
+                                "workflows",
+                                "checking-account-opening",
+                                "instances",
+                                "{{instance_id}}",
+                                "start"
+                            ],
+                            "query": [
+                                {
+                                    "key": "sync",
+                                    "value": null
+                                },
+                                {
+                                    "key": "version",
+                                    "value": "1.0"
+                                }
+                            ]
+                        },
+                        "description": "Starts a new checking account opening workflow instance"
+                    },
+                    "response": [],
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "type": "text/javascript",
+                                "exec": [
+                                    "// Status code should be 200",
+                                    "pm.test(\"Status code is 200\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "// Response should be JSON",
+                                    "pm.test(\"Response is JSON\", function () {",
+                                    "    pm.response.to.be.json;",
+                                    "});",
+                                    "",
+                                    "// Save workflow instance ID if returned",
+                                    "var jsonData = pm.response.json();",
+                                    "if (jsonData.instanceId) {",
+                                    "    pm.environment.set(\"workflow_instance_id\", jsonData.instanceId);",
+                                    "}"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "// You can add collection-level pre-request scripts here"
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    "// You can add collection-level test scripts here"
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8080",
+            "type": "string"
+        }
+    ]
+} 
