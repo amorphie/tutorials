@@ -94,6 +94,12 @@
                 "language": "en"
               }
             ],
+            "schema": {
+              "key": "checking-account-input",
+              "flow": "schemas",
+              "domain": "account",
+              "version": "1.0"
+            },
             "target": "approval",
             "versionStrategy": "noAction",
             "views": [
