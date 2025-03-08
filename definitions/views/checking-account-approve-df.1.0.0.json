@@ -1,0 +1,14 @@
+{
+    "key": "checking-account-approve-df",
+    "domain": "account",
+    "version": "1.0.0",
+    "tags": [
+        "account",
+        "checking"
+    ],
+    "attributes": {
+        "type": "dynamic-flutter",
+        "display": "full-page | popup | bottom-sheet | top-sheet",
+        "content": "..........."
+    }
+}

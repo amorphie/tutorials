@@ -11,7 +11,8 @@
         "configuration": "fora-services",
         "metadata": {
             "url": "/fora/DigitalServices/AccountService.svc/accounts/checking/new/{tckn}",
-            "operation": "post"
+            "operation": "post",
+            "successResponses":[200,201,461,462]
         }
     }
 }

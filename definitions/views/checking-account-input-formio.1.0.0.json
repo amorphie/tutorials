@@ -1,0 +1,14 @@
+{
+    "key": "checking-account-input-df",
+    "domain": "account",
+    "version": "1.0.0",
+    "tags": [
+        "account",
+        "checking"
+    ],
+    "attributes": {
+        "type": "form-io",
+        "display": "full-page | popup | bottom-sheet | top-sheet",
+        "content": "..........."
+    }
+}
