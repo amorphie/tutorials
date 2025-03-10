@@ -1,7 +1,7 @@
 {
   "key": "checking-account-opening",
   "domain": "account",
-  "version": "1.0",
+  "version": "2.0",
   "tags": [
     "account",
     "checking"
@@ -260,6 +260,22 @@
                 "language": "en"
               }
             ]
+          },
+          {
+            "key": "error",
+            "type": "rule",
+            "target": "error",
+            "rule": "#instance.#data.$.attributes.openingResponse <> 467,200",
+            "labels": [
+              {
+                "label": "Hata",
+                "language": "tr"
+              },
+              {
+                "label": "Error",
+                "language": "en"
+              }
+            ]
           }
         ]
       },
@@ -348,6 +364,29 @@
           },
           {
             "label": "Timeout",
+            "language": "en"
+          }
+        ],
+        "views": [
+          {
+            "key": "checking-account-full-summary-df",
+            "flow": "views",
+            "domain": "account",
+            "version": "1.0"
+          }
+        ],
+        "type": "finish"
+      },
+      {
+        "key": "error",
+        "versionStrategy": "noAction",
+        "labels": [
+          {
+            "label": "Hata",
+            "language": "tr"
+          },
+          {
+            "label": "Hata",
             "language": "en"
           }
         ],

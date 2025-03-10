@@ -1,0 +1,405 @@
+{
+  "key": "checking-account-opening",
+  "domain": "account",
+  "version": "1.0",
+  "tags": [
+    "account",
+    "checking"
+  ],
+  "attributes": {
+    "timeout": {
+      "duration": "PT20M",
+      "target": "timeout"
+    },
+    "type": "flow",
+    "labels": [
+      {
+        "label": "New Checking Account",
+        "language": "en"
+      },
+      {
+        "label": "Yeni Vadesiz Hesap",
+        "language": "tr"
+      }
+    ],
+    "functions": [
+      {
+        "key": "checking-currencies",
+        "flow": "functions",
+        "domain": "account",
+        "version": "1.0.0"
+      }
+    ],
+    "sharedTransitions": [
+      {
+        "key": "cancel",
+        "type": "cancel",
+        "labels": [
+          {
+            "label": "Iptal",
+            "language": "tr"
+          },
+          {
+            "label": "Cancel",
+            "language": "en"
+          }
+        ],
+        "target": "cancel",
+        "versionStrategy": "increaseMinor",
+        "availableIn": [
+          "input-data",
+          "approval"
+        ]
+      }
+    ],
+    "startTransition": {
+      "key": "start",
+      "target": "input-data",
+      "versionStrategy": "increaseMinor"
+    },
+    "states": [
+      {
+        "key": "input-data",
+        "type": "wizard",
+        "versionStrategy": "noAction",
+        "labels": [
+          {
+            "label": "Vadesiz Hesap Acilisi",
+            "language": "tr"
+          },
+          {
+            "label": "Opening checking Account",
+            "language": "en"
+          }
+        ],
+        "views": [
+          {
+            "key": "checking-account-full-summary-df",
+            "flow": "views",
+            "domain": "account",
+            "version": "1.0"
+          }
+        ],
+        "transitions": [
+          {
+            "key": "submit",
+            "type": "forward",
+            "labels": [
+              {
+                "label": "Devam",
+                "language": "tr"
+              },
+              {
+                "label": "Continue",
+                "language": "en"
+              }
+            ],
+            "schema": {
+              "key": "checking-account-input",
+              "flow": "schemas",
+              "domain": "account",
+              "version": "1.0"
+            },
+            "target": "approval",
+            "versionStrategy": "noAction",
+            "views": [
+              {
+                "key": "checking-account-input-df",
+                "flow": "views",
+                "domain": "account",
+                "version": "1.0"
+              },
+              {
+                "key": "checking-account-input-formio",
+                "flow": "views",
+                "domain": "account",
+                "version": "1.0"
+              }
+            ],
+            "onExecuteTasks": []
+          }
+        ]
+      },
+      {
+        "key": "approval",
+        "versionStrategy": "noAction",
+        "labels": [
+          {
+            "label": "Hesap Acilis Onayi",
+            "language": "tr"
+          },
+          {
+            "label": "Account Opening Approval",
+            "language": "en"
+          }
+        ],
+        "views": [
+          {
+            "key": "checking-account-full-summary-df",
+            "flow": "views",
+            "domain": "account",
+            "version": "1.0"
+          }
+        ],
+        "transitions": [
+          {
+            "key": "approve",
+            "type": "forward",
+            "labels": [
+              {
+                "label": "Onayla",
+                "language": "tr"
+              },
+              {
+                "label": "Approve",
+                "language": "en"
+              }
+            ],
+            "target": "control",
+            "views": [
+              {
+                "key": "checking-account-approve-df",
+                "flow": "views",
+                "domain": "account",
+                "version": "1.0"
+              }
+            ],
+            "onExecuteTasks": [
+              {
+                "task": {
+                  "key": "checking-account-create",
+                  "flow": "tasks",
+                  "domain": "account",
+                  "version": "1.0.0"
+                },
+                "mapping": {
+                  "input": {
+                    "#route.tckn": "#instance.#data.$.attributes.customer.citizenshipNumber",
+                    "#request.#body.accountName": "#instance.#data.$.attributes.name",
+                    "#request.#body.currency": "#instance.#data.$.attributes.currency"
+                  },
+                  "output": {
+                    "#instance.#key": "#response.#body.$.iban",
+                    "#instance.#data.$.attributes.openingResponse": "#response.#responseCode",
+                    "#instance.#data.$.attributes.iban": "#response.#body.$.iban",
+                    "#instance.#data.$.attributes.account": "#response.#body.$.hesapno"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "key": "approve",
+            "type": "back",
+            "target": "input-data",
+            "labels": [
+              {
+                "label": "Geri",
+                "language": "tr"
+              },
+              {
+                "label": "Back",
+                "language": "en"
+              }
+            ]
+          }
+        ],
+        "type": "wizard"
+      },
+      {
+        "key": "control",
+        "type": "normal",
+        "versionStrategy": "noAction",
+        "labels": [
+          {
+            "label": "Acilis Kontrol",
+            "language": "tr"
+          },
+          {
+            "label": "Opening Control",
+            "language": "en"
+          }
+        ],
+        "views": [
+          {
+            "key": "checking-account-full-summary-df",
+            "flow": "views",
+            "domain": "account",
+            "version": "1.0"
+          }
+        ],
+        "transitions": [
+          {
+            "key": "success",
+            "type": "rule",
+            "target": "opened",
+            "rule": "#instance.#data.$.attributes.openingResponse == 200",
+            "labels": [
+              {
+                "label": "Basarili",
+                "language": "tr"
+              },
+              {
+                "label": "Success",
+                "language": "en"
+              }
+            ]
+          },
+          {
+            "key": "suffix-problem",
+            "type": "rule",
+            "target": "suffix-full",
+            "rule": "#instance.#data.$.attributes.openingResponse == 467",
+            "labels": [
+              {
+                "label": "Basarisiz",
+                "language": "tr"
+              },
+              {
+                "label": "Not Success",
+                "language": "en"
+              }
+            ]
+          },
+          {
+            "key": "error",
+            "type": "rule",
+            "target": "error",
+            "rule": "#instance.#data.$.attributes.openingResponse <> 467,200",
+            "labels": [
+              {
+                "label": "Hata",
+                "language": "tr"
+              },
+              {
+                "label": "Error",
+                "language": "en"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "suffix-full",
+        "type": "finish",
+        "versionStrategy": "noAction",
+        "labels": [
+          {
+            "label": "Yetersiz Ek No",
+            "language": "tr"
+          },
+          {
+            "label": "Suffix Problem",
+            "language": "en"
+          }
+        ],
+        "views": [
+          {
+            "key": "checking-account-full-summary-df",
+            "flow": "views",
+            "domain": "account",
+            "version": "1.0"
+          }
+        ]
+      },
+      {
+        "key": "opened",
+        "versionStrategy": "noAction",
+        "labels": [
+          {
+            "label": "Vadesiz Hesap",
+            "language": "tr"
+          },
+          {
+            "label": "Checking Account",
+            "language": "en"
+          }
+        ],
+        "views": [
+          {
+            "key": "checking-account-opened-df",
+            "flow": "views",
+            "domain": "account",
+            "version": "1.0"
+          },
+          {
+            "key": "checking-account-full-summary-df",
+            "flow": "views",
+            "domain": "account",
+            "version": "1.0"
+          }
+        ],
+        "type": "finish"
+      },
+      {
+        "key": "canceled",
+        "versionStrategy": "noAction",
+        "labels": [
+          {
+            "label": "Iptal",
+            "language": "tr"
+          },
+          {
+            "label": "Canceled",
+            "language": "en"
+          }
+        ],
+        "views": [
+          {
+            "key": "checking-account-full-summary-df",
+            "flow": "views",
+            "domain": "account",
+            "version": "1.0"
+          }
+        ],
+        "type": "finish"
+      },
+      {
+        "key": "timeout",
+        "versionStrategy": "noAction",
+        "labels": [
+          {
+            "label": "Zamanasimi",
+            "language": "tr"
+          },
+          {
+            "label": "Timeout",
+            "language": "en"
+          }
+        ],
+        "views": [
+          {
+            "key": "checking-account-full-summary-df",
+            "flow": "views",
+            "domain": "account",
+            "version": "1.0"
+          }
+        ],
+        "type": "finish"
+      },
+      {
+        "key": "error",
+        "versionStrategy": "noAction",
+        "labels": [
+          {
+            "label": "Hata",
+            "language": "tr"
+          },
+          {
+            "label": "Hata",
+            "language": "en"
+          }
+        ],
+        "views": [
+          {
+            "key": "checking-account-full-summary-df",
+            "flow": "views",
+            "domain": "account",
+            "version": "1.0"
+          }
+        ],
+        "type": "finish"
+      }
+    ]
+  }
+}

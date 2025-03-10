@@ -12,7 +12,7 @@
         "metadata": {
             "url": "/fora/DigitalServices/AccountService.svc/accounts/checking/new/{tckn}",
             "operation": "post",
-            "successResponseCodes":[200,201,467]
+            "successResponses":[200,467]
         }
     }
 }

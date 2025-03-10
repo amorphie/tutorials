@@ -12,7 +12,7 @@
             "key": "checking-account-available-currencies",
             "flow": "tasks",
             "domain": "account",
-            "version": "1.0.0"
+            "version": "1.0"
         },
         "mapping": {
             "input": {
