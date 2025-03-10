@@ -1,5 +1,5 @@
 {
-    "_comment":"alanlardaki mapping alani instance data icinde nereye map edilecegini belirler. errorMessage ise bir hata var ise bad request icinde donulur. ayrica on yuz arabirimde gostermek icin kullanir.",
+    "_comment":"JsonSchema | OpenApi20 olabilir. Alanlardaki mapping alani instance data icinde nereye map edilecegini belirler. errorMessage ise bir hata var ise bad request icinde donulur. ayrica on yuz arabirimde gostermek icin kullanir.",
     "key": "checking-account-input",
     "domain": "account",
     "version": "1.0.0",
@@ -8,7 +8,7 @@
         "checking"
     ],
     "attributes": {
-        "type": "JsonSchema | OpenApi20",
+        "type": "JsonSchema",
         "schema": {
             "type": "object",
             "properties": {

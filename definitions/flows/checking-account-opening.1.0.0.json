@@ -179,6 +179,7 @@
                     "#request.#body.currency": "#instance.#data.$.attributes.currency"
                   },
                   "output": {
+                    "#instance.#key": "#response.#body.$.iban",
                     "#instance.#data.$.attributes.openingResponse": "#response.#responseCode",
                     "#instance.#data.$.attributes.iban": "#response.#body.$.iban",
                     "#instance.#data.$.attributes.account": "#response.#body.$.hesapno"
