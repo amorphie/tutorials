@@ -295,7 +295,7 @@
         ],
         "views": [
           {
-            "key": "checking-account-full-summary-df",
+            "key": "checking-account-suffix-error-df",
             "flow": "views",
             "domain": "account",
             "version": "1.0"
@@ -392,7 +392,7 @@
         ],
         "views": [
           {
-            "key": "checking-account-full-summary-df",
+            "key": "checking-account-opening-error-df",
             "flow": "views",
             "domain": "account",
             "version": "1.0"
