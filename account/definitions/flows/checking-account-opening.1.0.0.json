@@ -61,7 +61,7 @@
       {
         "key": "input-data",
         "type": "wizard",
-        "versionStrategy": "noAction",
+        "versionStrategy": "increaseMinor",
         "labels": [
           {
             "label": "Vadesiz Hesap Acilisi",
@@ -403,3 +403,4 @@
     ]
   }
 }
+
