@@ -1,0 +1,139 @@
+{
+  "key": "token",
+  "domain": "idm",
+  "version": "1.0.0",
+  "tags": [
+    "idm",
+    "outh2"
+  ],
+  "attributes": {
+    "type": "flow",
+    "labels": [
+      {
+        "label": "Erisim Belirteci",
+        "language": "en"
+      },
+      {
+        "label": "Token",
+        "language": "tr"
+      }
+    ],
+    "functions": [],
+    "sharedTransitions": [],
+    "startTransition": {
+      "key": "start",
+      "target": "evaluated",
+      "onExecute": [
+        {
+          "_comment": "Talepde bulunan user, client ve scope bilgileri tutarlimi ve token almaya uygun mu kontrol edilir.",
+          "task": {
+            "key": "token-evaluate",
+            "flow": "tasks",
+            "domain": "idm",
+            "version": "1.0.0"
+          },
+          "mapping": {
+            "input": {
+              "_comment": "@enrich komutu referans neslerin yuklenmesini saglar. In-memory operasyondur. tum akis verilerinin server side cache uzerinden sunuldugu varsayilir.",
+              "#request.body.client": "#transition.body.client.reference.@enrich",
+              "#request.body.user": "#transition.body.user.reference.@enrich",
+              "#request.body.scope": "#transition.body.scope.reference.@enrich"
+            },
+            "output": {
+              "#instance.#data.$.attributes.responses.evaluate-response": "#response.code",
+              "#instance.#data.$.attributes.scope.reference": "#response.#body.$.scopeReference"
+            }
+          }
+        }
+      ]
+    },
+    "states": [
+      {
+        "key": "evaluated",
+        "type": "normal",
+        "labels": [
+          {
+            "label": "Degerlendirildi",
+            "language": "tr"
+          },
+          {
+            "label": "Evaluated",
+            "language": "en"
+          }
+        ],
+        "views": [],
+        "transitions": [
+          {
+            "key": "prepare-authorization-code",
+            "type": "rule",
+            "labels": [
+              {
+                "label": "Uygun Talep",
+                "language": "tr"
+              },
+              {
+                "label": "Valid Request",
+                "language": "en"
+              }
+            ],
+            "rule": "#instance.#data.$.attributes.responses.evaluate-response = 200",
+            "target": "waiting-reedem",
+            "views": [],
+            "onExecuteTasks": []
+          },
+          {
+            "key": "request-inappropriate",
+            "type": "rule",
+            "labels": [
+              {
+                "label": "Hatali Talep",
+                "language": "tr"
+              },
+              {
+                "label": "Invalid Request",
+                "language": "en"
+              }
+            ],
+            "rule": "#instance.#data.$.attributes.responses.evaluate-response <> 200",
+            "target": "not-applicable",
+            "views": [],
+            "onExecuteTasks": []
+          }
+        ]
+      },
+      {
+        "key": "not-applicable",
+        "type": "finish",
+        "labels": [
+          {
+            "label": "Hatali Token Talebi",
+            "language": "tr"
+          },
+          {
+            "label": "Invalid Token Request",
+            "language": "en"
+          }
+        ],
+        "views": []
+      },
+      {
+        "key": "waiting-reedem",
+        "type": "normal",
+        "labels": [
+          {
+            "label": "Authorization Code Hazir",
+            "language": "tr"
+          },
+          {
+            "label": "Authorization Code Ready",
+            "language": "en"
+          }
+        ],
+        "views": [],
+        "onEntryTasks":[
+          
+        ]
+      }
+    ]
+  }
+}

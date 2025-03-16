@@ -1,0 +1,35 @@
+{
+    "_comment": "Token alimini baslatir. her durumda token alimi, client, user ve scope ile baslar.",
+    "key": "token-start",
+    "domain": "core",
+    "version": "1.0.0",
+    "tags": [
+        "core"
+    ],
+    "attributes": {
+        "type": "JsonSchema",
+        "schema":{
+            "type": "object",
+            "properties": {
+                "client": {
+                    "mapping": "#instance.#data.$.attributes.client.reference",
+                    "$ref": "#/idm/workflows/schema/instances/reference?mapping=reference-as-raw"
+                },
+                "user": {
+                    "mapping": "#instance.#data.$.attributes.user.referece",
+                    "$ref": "#/idm/workflows/schema/instances/reference?mapping=reference-as-raw"
+                },
+                "scope": {
+                    "mapping": "#instance.#data.$.attributes.scope.reference",
+                    "$ref": "#/idm/workflows/schema/instances/reference?mapping=reference-as-raw"
+                }
+            },
+            "required": [
+                "client",
+                "user",
+                "scope"
+            ]
+        }
+      
+    }
+}
