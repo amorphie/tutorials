@@ -44,7 +44,7 @@
             "language": "en"
           }
         ],
-        "target": "cancel",
+        "target": "canceled",
         "versionStrategy": "increaseMinor",
         "availableIn": [
           "input-data",

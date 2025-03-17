@@ -25,7 +25,6 @@
       "target": "evaluated",
       "onExecute": [
         {
-          "_comment": "Talepde bulunan user, client ve scope bilgileri tutarlimi ve token almaya uygun mu kontrol edilir.",
           "task": {
             "key": "token-evaluate",
             "flow": "tasks",
@@ -130,8 +129,42 @@
           }
         ],
         "views": [],
-        "onEntryTasks":[
-          
+        "onEntryTasks": [
+          {
+            "task": {
+              "key": "token-prepare",
+              "flow": "tasks",
+              "domain": "idm",
+              "version": "1.0.0"
+            },
+            "mapping": {
+              "input": {
+                "#request.body.client": "#transition.body.client.reference.@enrich",
+                "#request.body.user": "#transition.body.user.reference.@enrich",
+                "#request.body.scope": "#transition.body.scope.reference.@enrich",
+                "#request.headers": "#transition.headers"
+              },
+              "output": {
+                "#instance.#data.$.attributes.responses.prepare-response": "#response.code",
+                "#instance.#data.$.attributes.authorization-code.ttl": "#response.#body.$.code-ttl",
+                "#instance.#data.$.attributes.authorization-code.key": "#response.#body.$.code",
+                "#instance.#data.$.attributes.tokens.access.ttl": "#response.#body.$.access-ttl",
+                "#instance.#data.$.attributes.tokens.refresh.ttl": "#response.#body.$.refresh-ttl"
+              }
+            }
+          }
+        ],
+        "transitions": [
+          {
+            "key": "expire-code",
+            "target": "code-expired",
+            "type": "timed",
+            "timer": {
+              "_comment": "reset-type: every-entry; state her girdiginde resetlenir, first-entry; ilk giriste saymaya baslar, resetlenmez.",
+              "reset-type": "every-entry",
+              "ttl": "#instance.#data.$.attributes.authorization-code.ttl"
+            }
+          }
         ]
       }
     ]

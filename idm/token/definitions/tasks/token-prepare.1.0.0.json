@@ -1,5 +1,5 @@
 {
-    "key": "token-evaluate",
+    "key": "token-prepare",
     "domain": "idm",
     "version": "1.0.0",
     "tags": [
@@ -7,11 +7,11 @@
         "outh2"
     ],
     "attributes": {
-        "_comment":"Gelen parametreleri kontrol ederek token almaya elverislimi onu kontrol eder.",
+        "_comment":"Authorization code olusturup kullanima sunar. Eger invalide edilecek tokenlar var ise onlarida invalide eder.",
         "binding": "bindings.http",
         "configuration": "idm-services",
         "metadata": {
-            "url": "/idm/token/evaluate",
+            "url": "/idm/token/prepare",
             "operation": "post",
             "successResponses": [
                 200
