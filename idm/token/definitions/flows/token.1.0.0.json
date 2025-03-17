@@ -40,7 +40,7 @@
             },
             "output": {
               "#instance.#data.$.attributes.responses.evaluate-response": "#response.code",
-              "#instance.#data.$.attributes.scope.reference": "#response.#body.$.scopeReference"
+              "#instance.#data.$.attributes.consent.reference": "#response.#body.$.consentReference"
             }
           }
         }
@@ -129,7 +129,7 @@
           }
         ],
         "views": [],
-        "onEntryTasks": [
+        "onFirstEntryTasks": [
           {
             "task": {
               "key": "token-prepare",
@@ -142,6 +142,7 @@
                 "#request.body.client": "#transition.body.client.reference.@enrich",
                 "#request.body.user": "#transition.body.user.reference.@enrich",
                 "#request.body.scope": "#transition.body.scope.reference.@enrich",
+                "#request.body.consent": "#transition.body.consent.reference.@enrich",
                 "#request.headers": "#transition.headers"
               },
               "output": {
@@ -169,4 +170,25 @@
       }
     ]
   }
+}
+
+
+"#request.body.client": "#transition.body.client.reference.@enrich",
+"#request.body.user": "#transition.body.user.reference.@enrich",
+"#request.body.scope": "#transition.body.scope.reference.@enrich",
+"#request.body.consent": "#transition.body.consent.reference.@enrich",
+"#request.headers": "#transition.headers"
+
+
+RequestHandler(transition, inputRequest, instance )
+{
+  inputRequest.Body.Add("client", amorhie.helper.Enrich(transition.body.client.reference));
+  inputRequest.Body.Add("user", amorhie.helper.Enrich(transition.body.client.reference));
+  inputRequest.Body.Add("scope", amorhie.helper.Enrich(transition.body.client.reference));
+}
+
+ResponseHandler(reesponse, inputRequest, instance )
+{
+
+
 }
