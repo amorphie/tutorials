@@ -189,7 +189,7 @@
             ]
           },
           {
-            "key": "approve",
+            "key": "back",
             "type": "back",
             "target": "input-data",
             "labels": [
@@ -252,11 +252,11 @@
             "rule": "#instance.#data.$.attributes.openingResponse == 467",
             "labels": [
               {
-                "label": "Basarisiz",
+                "label": "Ek No Dolu",
                 "language": "tr"
               },
               {
-                "label": "Not Success",
+                "label": "Suffix Full",
                 "language": "en"
               }
             ]

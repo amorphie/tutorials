@@ -189,7 +189,7 @@
             ]
           },
           {
-            "key": "approve",
+            "key": "back",
             "type": "back",
             "target": "input-data",
             "labels": [
