@@ -173,17 +173,8 @@
                   "version": "1.0.0"
                 },
                 "mapping": {
-                  "input": {
-                    "#route.tckn": "#instance.#data.$.attributes.customer.citizenshipNumber",
-                    "#request.#body.$.accountName": "#instance.#data.$.attributes.accountName",
-                    "#request.#body.$.currency": "#instance.#data.$.attributes.currency"
-                  },
-                  "output": {
-                    "#instance.#key": "#response.#body.$.iban",
-                    "#instance.#data.$.attributes.openingResponse": "#response.#responseCode",
-                    "#instance.#data.$.attributes.iban": "#response.#body.$.iban",
-                    "#instance.#data.$.attributes.account": "#response.#body.$.hesapno"
-                  }
+                  "_comment": "Code base64 olarak pipeline icerisinde donusturulerek json icerisinde runtime icerisinde saklanir.",
+                  "code": "/account/checking-account-opening/src/opening/CheckingAccountCreateMapping.cs"
                 }
               }
             ]
@@ -233,7 +224,9 @@
             "key": "success",
             "type": "rule",
             "target": "opened",
-            "rule": "#instance.#data.$.attributes.openingResponse == 200",
+            "rule": {
+              "code": "/account/checking-account-opening/src/opening/OpeningSuccessRule.cs"
+            },
             "labels": [
               {
                 "label": "Basarili",
@@ -249,7 +242,9 @@
             "key": "suffix-problem",
             "type": "rule",
             "target": "suffix-full",
-            "rule": "#instance.#data.$.attributes.openingResponse == 467",
+            "rule": {
+              "code": "/account/checking-account-opening/src/opening/OpeningSuffixFullRule.cs"
+            },
             "labels": [
               {
                 "label": "Ek No Dolu",
@@ -265,7 +260,9 @@
             "key": "error",
             "type": "rule",
             "target": "error",
-            "rule": "#instance.#data.$.attributes.openingResponse <> 467,200",
+            "rule": {
+              "code": "/account/checking-account-opening/src/opening/OpeningErrorRule.cs"
+            },
             "labels": [
               {
                 "label": "Hata",
@@ -403,4 +400,3 @@
     ]
   }
 }
-

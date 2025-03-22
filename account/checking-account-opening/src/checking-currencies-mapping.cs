@@ -11,17 +11,17 @@ public class CheckingCurrenciesMapping : Amorphie.Task.IMapping
         if (downRequest.HttpRequestMessage.Headers.AcceptLanguage != null && downRequest.HttpRequestMessage.Headers.AcceptLanguage.Count != 0)
         {
             var acceptLanguageValues = string.Join(",", downRequest.Headers.AcceptLanguage.Select(lang => lang.ToString()));
-            upRequest.HttpRequestMessageHeaders.Add("Accept-Language", acceptLanguageValues);
+            upRequest.HttpRequestMessage.Headers.Add("Accept-Language", acceptLanguageValues);
         }
 
-        if (downRequest.HttpRequestMessageHeaders.TryGetValues("User", out var userValues))
+        if (downRequest.HttpRequestMessage.Headers.TryGetValues("User", out var userValues))
         {
-            upRequest.HttpRequestMessageHeaders.TryAddWithoutValidation("User", userValues.FirstOrDefault());
+            upRequest.HttpRequestMessage.Headers.TryAddWithoutValidation("User", userValues.FirstOrDefault());
         }
 
-        if (downRequest.HttpRequestMessageHeaders.TryGetValues("Scope", out var scopeValues))
+        if (downRequest.HttpRequestMessage.Headers.TryGetValues("Scope", out var scopeValues))
         {
-            upRequest.HttpRequestMessageHeaders.TryAddWithoutValidation("Customer", scopeValues.FirstOrDefault());
+            upRequest.HttpRequestMessage.Headers.TryAddWithoutValidation("Customer", scopeValues.FirstOrDefault());
         }
         return Ok();
     }

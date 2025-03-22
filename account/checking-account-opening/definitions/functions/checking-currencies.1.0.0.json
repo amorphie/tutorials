@@ -15,6 +15,7 @@
             "version": "1.0"
         },
         "mapping": {
+            "_comment": "Code base64 olarak pipeline icerisinde donusturulerek json icerisinde runtime icerisinde saklanir.",
             "code": "./src/checking-currencies-mapping"
         }
     }
