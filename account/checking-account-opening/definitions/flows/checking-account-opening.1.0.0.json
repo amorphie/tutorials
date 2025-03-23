@@ -8,8 +8,13 @@
   ],
   "attributes": {
     "timeout": {
-      "duration": "PT20M",
-      "target": "timeout"
+      "key": "timeout",
+      "target": "timeout",
+      "versionStrategy": "noAction",
+      "timer": {
+        "reset": "never",
+        "duration": "PT20M"
+      }
     },
     "type": "flow",
     "labels": [
@@ -32,24 +37,26 @@
     ],
     "sharedTransitions": [
       {
-        "key": "cancel",
-        "type": "cancel",
-        "labels": [
-          {
-            "label": "Iptal",
-            "language": "tr"
-          },
-          {
-            "label": "Cancel",
-            "language": "en"
-          }
-        ],
-        "target": "canceled",
-        "versionStrategy": "increaseMinor",
         "availableIn": [
           "input-data",
           "approval"
-        ]
+        ],
+        "transition": {
+          "key": "cancel",
+          "type": "cancel",
+          "labels": [
+            {
+              "label": "Iptal",
+              "language": "tr"
+            },
+            {
+              "label": "Cancel",
+              "language": "en"
+            }
+          ],
+          "target": "canceled",
+          "versionStrategy": "increaseMinor"
+        }
       }
     ],
     "startTransition": {
@@ -166,6 +173,7 @@
             "triggerTasks": [],
             "onExecuteTasks": [
               {
+                "order": 1,
                 "task": {
                   "key": "checking-account-create",
                   "flow": "tasks",
@@ -174,7 +182,7 @@
                 },
                 "mapping": {
                   "_comment": "Code base64 olarak pipeline icerisinde donusturulerek json icerisinde runtime icerisinde saklanir.",
-                  "code": "/account/checking-account-opening/src/opening/CheckingAccountCreateMapping.cs"
+                  "location": "/account/checking-account-opening/src/opening/CheckingAccountCreateMapping.cs"
                 }
               }
             ]
@@ -225,7 +233,7 @@
             "type": "rule",
             "target": "opened",
             "rule": {
-              "code": "/account/checking-account-opening/src/opening/OpeningSuccessRule.cs"
+              "location": "/account/checking-account-opening/src/opening/OpeningSuccessRule.cs"
             },
             "labels": [
               {
@@ -243,7 +251,7 @@
             "type": "rule",
             "target": "suffix-full",
             "rule": {
-              "code": "/account/checking-account-opening/src/opening/OpeningSuffixFullRule.cs"
+              "location": "/account/checking-account-opening/src/opening/OpeningSuffixFullRule.cs"
             },
             "labels": [
               {
@@ -261,7 +269,7 @@
             "type": "rule",
             "target": "error",
             "rule": {
-              "code": "/account/checking-account-opening/src/opening/OpeningErrorRule.cs"
+              "location": "/account/checking-account-opening/src/opening/OpeningErrorRule.cs"
             },
             "labels": [
               {
@@ -295,7 +303,10 @@
             "key": "checking-account-suffix-error-df",
             "flow": "views",
             "domain": "account",
-            "version": "1.0"
+            "version": "1.0",
+            "meta": {
+              "viewType": "dynamicFlutter"
+            }
           }
         ]
       },
@@ -317,13 +328,19 @@
             "key": "checking-account-opened-df",
             "flow": "views",
             "domain": "account",
-            "version": "1.0"
+            "version": "1.0",
+            "meta": {
+              "viewType": "dynamicFlutter"
+            }
           },
           {
             "key": "checking-account-full-summary-df",
             "flow": "views",
             "domain": "account",
-            "version": "1.0"
+            "version": "1.0",
+            "meta": {
+              "viewType": "dynamicFlutter"
+            }
           }
         ],
         "type": "finish"
@@ -346,13 +363,26 @@
             "key": "checking-account-full-summary-df",
             "flow": "views",
             "domain": "account",
-            "version": "1.0"
+            "version": "1.0",
+            "meta": {
+              "viewType": "dynamicFlutter"
+            }
+          },
+          {
+            "key": "checking-account-canceled-df",
+            "flow": "views",
+            "domain": "account",
+            "version": "1.0",
+            "meta": {
+              "viewType": "dynamicFlutter"
+            }
           }
         ],
         "type": "finish"
       },
       {
         "key": "timeout",
+        "type": "finish",
         "versionStrategy": "noAction",
         "labels": [
           {
@@ -371,19 +401,19 @@
             "domain": "account",
             "version": "1.0"
           }
-        ],
-        "type": "finish"
+        ]
       },
       {
         "key": "error",
         "versionStrategy": "noAction",
+        "type": "finish",
         "labels": [
           {
             "label": "Hata",
             "language": "tr"
           },
           {
-            "label": "Hata",
+            "label": "Error",
             "language": "en"
           }
         ],
@@ -392,10 +422,21 @@
             "key": "checking-account-opening-error-df",
             "flow": "views",
             "domain": "account",
-            "version": "1.0"
+            "version": "1.0",
+            "meta": {
+              "viewType": "dynamicFlutter"
+            }
+          },
+          {
+            "key": "checking-account-full-summary-df",
+            "flow": "views",
+            "domain": "account",
+            "version": "1.0",
+            "meta": {
+              "viewType": "dynamicFlutter"
+            }
           }
-        ],
-        "type": "finish"
+        ]
       }
     ]
   }

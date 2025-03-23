@@ -1,5 +1,5 @@
 {
-    "key": "checking-account-full-summary-df",
+    "key": "checking-account-canceled-df",
     "domain": "account",
     "version": "1.0.0",
     "tags": [
@@ -7,7 +7,7 @@
         "checking"
     ],
     "attributes": {
-        "type": "dynamicFlutter",
+        "type": "dynamic-flutter",
         "display": "full-page | popup | bottom-sheet | top-sheet",
         "content": "..........."
     }
