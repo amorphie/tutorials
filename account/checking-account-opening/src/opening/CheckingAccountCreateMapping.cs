@@ -1,4 +1,4 @@
-public class CheckingAccountCreateMapping : Amorphie.Task.IMapping
+public class CheckingAccountCreateMapping : Amorphie.IMapping
 {
     public IActionResult RequestHandler(
             Request downRequest,

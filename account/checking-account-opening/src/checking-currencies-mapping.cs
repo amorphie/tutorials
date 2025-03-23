@@ -1,4 +1,4 @@
-public class CheckingCurrenciesMapping : Amorphie.Task.IMapping
+public class CheckingCurrenciesMapping : Amorphie.IMapping
 {
     public IActionResult RequestHandler(
             Request downRequest,
