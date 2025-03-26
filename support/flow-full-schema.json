@@ -1,0 +1,1127 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "vNext",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/admin/publish": {
+      "post": {
+        "summary": "/admin/publish",
+        "deprecated": false,
+        "description": "Amorhie Runtime ilk kurulum sornasinda, temel is akislarinin dagitimi icin kullanilir.  \n- Temel akislar dagitimi pipelinelar uzerinden dagitilir.\n\n\n:::highlight red 📌\nTemel is akislari haricindeki tum akislar, temel akis olan **flows** akisi ile dagitilir.\n:::",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/flow"
+              },
+              "example": {
+                "key": "eflissjqzfubmmmyfihi",
+                "domain": "affectionate-lender.net",
+                "version": "2.3",
+                "timeout": {
+                  "duration": "dolore mollit",
+                  "target": "cillum"
+                },
+                "runtime": [
+                  {
+                    "client": "ipsum aliqua",
+                    "version": "adipisicing et"
+                  }
+                ],
+                "tags": [
+                  "compono"
+                ],
+                "type": "flow",
+                "labels": [
+                  {
+                    "label": "Lorem",
+                    "language": "amet id anim in nulla"
+                  }
+                ],
+                "functions": [
+                  {
+                    "id": "TBmxksnh3neSVkpIaI-GE",
+                    "key": "lpnmqjkbgndgvxsqxc",
+                    "flow": "culpa",
+                    "domain": "only-riser.org",
+                    "version": "3.0",
+                    "type": "get"
+                  },
+                  {
+                    "id": "KjdBKk749tP4vZsSObhiM",
+                    "key": "kexslepagybhct",
+                    "flow": "eiusmod Lorem",
+                    "domain": "frequent-onset.org",
+                    "version": "4.3",
+                    "type": "get"
+                  },
+                  {
+                    "id": "51K9Mq4qu3RqGk12QCHzG",
+                    "key": "kejivxbtvqbmfcliz",
+                    "flow": "est voluptate mollit",
+                    "domain": "flowery-doubter.name",
+                    "version": "5.8",
+                    "type": "post"
+                  }
+                ],
+                "features": [
+                  {
+                    "id": "sLxJ4K6dQPR7jJwaybSTl",
+                    "key": "uyzugaowadokwndpe",
+                    "flow": "laboris Excepteur nisi dolore",
+                    "domain": "black-exterior.us",
+                    "version": "5.1",
+                    "availableIn": [
+                      "culpa nostrud ut",
+                      "adipisicing in anim",
+                      "adipisicing Lorem ipsum in in"
+                    ]
+                  }
+                ],
+                "sharedTransitions": [
+                  {
+                    "key": "sunt veniam ipsum Lorem velit",
+                    "labels": [
+                      {
+                        "label": "qui incididunt",
+                        "language": "amet ut deserunt"
+                      },
+                      {
+                        "label": "ipsum",
+                        "language": "aliqua sit"
+                      }
+                    ],
+                    "target": "mollit cupidatat",
+                    "onExecuteTasks": [
+                      {
+                        "binding": " bindings.http",
+                        "order": 3,
+                        "metadata": [
+                          {
+                            "key": "nisi do",
+                            "value": "deserunt sit Lorem"
+                          }
+                        ],
+                        "message": [
+                          {
+                            "key": "aliquip veniam aliqua",
+                            "value": "sunt cupidatat sit nulla ex"
+                          },
+                          {
+                            "key": "culpa et",
+                            "value": "deserunt commodo nisi"
+                          },
+                          {
+                            "key": "dolore ea pariatur incididunt Lorem",
+                            "value": "ipsum"
+                          }
+                        ],
+                        "type": "sync"
+                      },
+                      {
+                        "binding": "bindings.zeebe.jobworker",
+                        "order": 1,
+                        "metadata": [
+                          {
+                            "key": "exercitation reprehenderit Ut ad est",
+                            "value": "cupidatat officia occaecat Duis voluptate"
+                          },
+                          {
+                            "key": "fugiat nostrud amet aliqua",
+                            "value": "cillum dolore"
+                          },
+                          {
+                            "key": "cupidatat ullamco nostrud dolore",
+                            "value": "ut proident in"
+                          }
+                        ],
+                        "message": [
+                          {
+                            "key": "adipisicing consectetur",
+                            "value": "et officia aute"
+                          },
+                          {
+                            "key": "consectetur deserunt Duis",
+                            "value": "do esse ea"
+                          },
+                          {
+                            "key": "voluptate aliqua sed",
+                            "value": "sint aliqua id ullamco"
+                          }
+                        ],
+                        "type": "async"
+                      },
+                      {
+                        "binding": "bindings.zeebe.jobworker",
+                        "order": 9,
+                        "metadata": [
+                          {
+                            "key": "eu adipisicing",
+                            "value": "deserunt id ea labore in"
+                          }
+                        ],
+                        "message": [
+                          {
+                            "key": "Ut in adipisicing labore",
+                            "value": "aute in eiusmod"
+                          },
+                          {
+                            "key": "incididunt in ipsum nisi",
+                            "value": "ut in aute"
+                          },
+                          {
+                            "key": "nulla Ut voluptate",
+                            "value": "dolor nulla est occaecat Ut"
+                          }
+                        ],
+                        "type": "async"
+                      }
+                    ],
+                    "versionStrategy": "increaseMinor",
+                    "schema": {
+                      "id": "1emmR8nozh0S0wld5P27b",
+                      "key": "vcgcoxkxxmivjkk",
+                      "flow": "reprehenderit sit dolor nisi laborum",
+                      "domain": "appropriate-sarong.org",
+                      "version": "4.7"
+                    },
+                    "autoTransitByRule": {
+                      "rule": "incididunt reprehenderit id",
+                      "payload": {}
+                    },
+                    "autoTransitByTime": {
+                      "strategy": "StartByFirstEntry",
+                      "duration": "in"
+                    },
+                    "autoTransitByBinding": {
+                      "inputBinding": "amet est ipsum non",
+                      "correlationPath": "/usr/ports",
+                      "mapping": {}
+                    },
+                    "responseMapping": {
+                      "id": "RvQbmkLba29cWNS-rJexn",
+                      "key": "dfgnoungwrjwjhqwqmzq",
+                      "flow": "ut occaecat ut",
+                      "domain": "zesty-entry.net",
+                      "version": "6.4"
+                    },
+                    "views": [
+                      {
+                        "id": "DdyM8h7WwWK-KcsUYLHTL",
+                        "key": "deumegkymjkld",
+                        "flow": "dolore",
+                        "domain": "royal-oil.info",
+                        "version": "6.7",
+                        "type": "dynamicFlutter"
+                      }
+                    ],
+                    "availableIn": [
+                      "enim Ut laborum"
+                    ]
+                  },
+                  {
+                    "key": "proident",
+                    "labels": [
+                      {
+                        "label": "Ut ea quis non",
+                        "language": "eu incididunt et"
+                      },
+                      {
+                        "label": "dolore incididunt",
+                        "language": "sit aliquip reprehenderit in"
+                      }
+                    ],
+                    "target": "incididunt dolore velit cillum",
+                    "onExecuteTasks": [
+                      {
+                        "binding": "bindings.zeebe.jobworker",
+                        "order": 7,
+                        "metadata": [
+                          {
+                            "key": "ipsum Lorem",
+                            "value": "tempor"
+                          },
+                          {
+                            "key": "mollit veniam commodo ipsum",
+                            "value": "nulla amet"
+                          }
+                        ],
+                        "message": [
+                          {
+                            "key": "labore do voluptate in nostrud",
+                            "value": "commodo nisi"
+                          },
+                          {
+                            "key": "deserunt est ut et magna",
+                            "value": "aliqua ea laboris nisi Duis"
+                          }
+                        ],
+                        "type": "async"
+                      },
+                      {
+                        "binding": "bindings.zeebe.jobworker",
+                        "order": 2,
+                        "metadata": [
+                          {
+                            "key": "in sed consectetur",
+                            "value": "in"
+                          },
+                          {
+                            "key": "magna cupidatat",
+                            "value": "dolore dolore"
+                          }
+                        ],
+                        "message": [
+                          {
+                            "key": "cupidatat anim",
+                            "value": "fugiat ex aliquip Lorem"
+                          },
+                          {
+                            "key": "qui aliqua reprehenderit",
+                            "value": "reprehenderit dolore deserunt"
+                          },
+                          {
+                            "key": "ea sit",
+                            "value": "esse dolor irure qui"
+                          }
+                        ],
+                        "type": "sync"
+                      },
+                      {
+                        "binding": " bindings.http",
+                        "order": 3,
+                        "metadata": [
+                          {
+                            "key": "in",
+                            "value": "in consequat ullamco aliqua qui"
+                          },
+                          {
+                            "key": "est nostrud",
+                            "value": "ex adipisicing Duis"
+                          },
+                          {
+                            "key": "tempor aute minim",
+                            "value": "amet Ut anim nulla Excepteur"
+                          }
+                        ],
+                        "message": [
+                          {
+                            "key": "fugiat",
+                            "value": "exercitation minim labore tempor"
+                          },
+                          {
+                            "key": "ad sint labore in",
+                            "value": "aliqua aute ad dolor sit"
+                          },
+                          {
+                            "key": "eiusmod",
+                            "value": "velit fugiat veniam exercitation"
+                          }
+                        ],
+                        "type": "async"
+                      }
+                    ],
+                    "versionStrategy": "noAction",
+                    "schema": {
+                      "id": "Q2YxXjf5fMjI1NCHK-ysK",
+                      "key": "wpphpqrnkgmgfw",
+                      "flow": "nisi ullamco",
+                      "domain": "tragic-overload.org",
+                      "version": "3.4"
+                    },
+                    "autoTransitByRule": {
+                      "rule": "fugiat Lorem ex ea",
+                      "payload": {}
+                    },
+                    "autoTransitByTime": {
+                      "strategy": "ResetEveryEntry",
+                      "duration": "tempor dolore eiusmod laboris veniam"
+                    },
+                    "autoTransitByBinding": {
+                      "inputBinding": "dolor proident",
+                      "correlationPath": "/usr/libexec",
+                      "mapping": {}
+                    },
+                    "responseMapping": {
+                      "id": "_jGW9ysEf-umESm7KDmLx",
+                      "key": "hxvaprdvyykfnfynv",
+                      "flow": "culpa veniam dolor aute",
+                      "domain": "long-term-gastropod.org",
+                      "version": "6.5"
+                    },
+                    "views": [
+                      {
+                        "id": "I8N9Q_-J3TmHdmZ2B0Ksn",
+                        "key": "egxlkqspyzswxvwzjfv",
+                        "flow": "fugiat proident",
+                        "domain": "damaged-self-confidence.name",
+                        "version": "4.7",
+                        "type": "dynamicFlutter"
+                      },
+                      {
+                        "id": "clMYkd_uVjQjkIjQwJy6m",
+                        "key": "laolpfyvhscdwpiglm",
+                        "flow": "mollit in",
+                        "domain": "punctual-exploration.us",
+                        "version": "8.0",
+                        "type": "formIO"
+                      }
+                    ],
+                    "availableIn": [
+                      "Duis dolore reprehenderit incididunt veniam",
+                      "cupidatat do Excepteur ullamco sunt"
+                    ]
+                  }
+                ],
+                "extensions": [
+                  {
+                    "key": "dolor",
+                    "type": "always",
+                    "properties": [
+                      {
+                        "property": "voluptate in Duis laborum",
+                        "source": "response.$.data.attributes"
+                      }
+                    ],
+                    "task": {
+                      "binding": " bindings.http",
+                      "order": 8,
+                      "metadata": [
+                        {
+                          "key": "pariatur deserunt eiusmod incididunt",
+                          "value": "minim est dolor qui"
+                        }
+                      ],
+                      "message": [
+                        {
+                          "key": "minim est",
+                          "value": "proident dolore veniam"
+                        },
+                        {
+                          "key": "in proident Ut",
+                          "value": "eu consequat Duis"
+                        }
+                      ],
+                      "type": "async"
+                    }
+                  }
+                ],
+                "startTransition": {
+                  "key": "cupidatat",
+                  "labels": [
+                    {
+                      "label": "occaecat ea",
+                      "language": "ea"
+                    },
+                    {
+                      "label": "sed dolor pariatur ullamco",
+                      "language": "sit Lorem irure elit in"
+                    },
+                    {
+                      "label": "Lorem",
+                      "language": "deserunt do ad ullamco"
+                    }
+                  ],
+                  "target": "pariatur in",
+                  "onExecuteTasks": [
+                    {
+                      "binding": " bindings.http",
+                      "order": 2,
+                      "metadata": [
+                        {
+                          "key": "sint qui sed fugiat",
+                          "value": "quis minim et sunt"
+                        }
+                      ],
+                      "message": [
+                        {
+                          "key": "fugiat exercitation consectetur pariatur",
+                          "value": "qui ad in"
+                        },
+                        {
+                          "key": "enim mollit non",
+                          "value": "ipsum ex dolore ullamco nisi"
+                        }
+                      ],
+                      "type": "sync"
+                    },
+                    {
+                      "binding": " bindings.http",
+                      "order": 3,
+                      "metadata": [
+                        {
+                          "key": "ad commodo",
+                          "value": "irure nisi sed ullamco aliqua"
+                        },
+                        {
+                          "key": "occaecat",
+                          "value": "pariatur cupidatat adipisicing tempor id"
+                        }
+                      ],
+                      "message": [
+                        {
+                          "key": "anim consequat enim tempor",
+                          "value": "cillum"
+                        },
+                        {
+                          "key": "anim eu consequat aliquip irure",
+                          "value": "amet"
+                        }
+                      ],
+                      "type": "sync"
+                    }
+                  ],
+                  "versionStrategy": "noAction",
+                  "schema": {
+                    "id": "Ssue1b7r26dumgSECWNCm",
+                    "key": "dldixfyzjxougxsxf",
+                    "flow": "ut",
+                    "domain": "handy-curl.com",
+                    "version": "7.7"
+                  },
+                  "autoTransitByRule": {
+                    "rule": "aute voluptate pariatur dolor",
+                    "payload": {}
+                  },
+                  "autoTransitByTime": {
+                    "strategy": "ResetEveryEntry",
+                    "duration": "qui irure"
+                  },
+                  "autoTransitByBinding": {
+                    "inputBinding": "anim id magna",
+                    "correlationPath": "/var",
+                    "mapping": {}
+                  },
+                  "responseMapping": {
+                    "id": "VE3cnLWOevcl5E0cXbuZI",
+                    "key": "ztdsmjjbjxsngcp",
+                    "flow": "qui aliqua quis",
+                    "domain": "creamy-freezing.org",
+                    "version": "5.3"
+                  }
+                },
+                "states": [
+                  "Reference not found $ref: #/definitions/5385743",
+                  {
+                    "key": "pariatur",
+                    "labels": [
+                      {
+                        "label": "amet",
+                        "language": "id mollit"
+                      },
+                      {
+                        "label": "voluptate deserunt non",
+                        "language": "ipsum"
+                      },
+                      {
+                        "label": "non",
+                        "language": "sunt non"
+                      }
+                    ],
+                    "views": [
+                      {
+                        "id": "CTja7bf2r1_4HR57oluvT",
+                        "key": "dfbjeqsnmqowc",
+                        "flow": "sunt",
+                        "domain": "frightened-self-confidence.name",
+                        "version": "1.5",
+                        "type": "JsonForms"
+                      },
+                      {
+                        "id": "AeTDuH7yP49ardv9rW4AR",
+                        "key": "zwygwlefvbieytkli",
+                        "flow": "elit dolor",
+                        "domain": "frilly-pecan.name",
+                        "version": "9.3",
+                        "type": "formIO"
+                      }
+                    ],
+                    "OnEntry": [
+                      {
+                        "binding": "bindings.zeebe.jobworker",
+                        "order": 7,
+                        "metadata": [
+                          {
+                            "key": "Ut",
+                            "value": "qui"
+                          },
+                          {
+                            "key": "quis",
+                            "value": "dolore sed velit"
+                          }
+                        ],
+                        "message": [
+                          {
+                            "key": "adipisicing",
+                            "value": "id cupidatat non"
+                          }
+                        ],
+                        "type": "async"
+                      },
+                      {
+                        "binding": "bindings.zeebe.jobworker",
+                        "order": 9,
+                        "metadata": [
+                          {
+                            "key": "ipsum proident",
+                            "value": "labore cillum nostrud"
+                          },
+                          {
+                            "key": "ut occaecat ut proident fugiat",
+                            "value": "non laborum Excepteur dolor cillum"
+                          },
+                          {
+                            "key": "deserunt amet eu",
+                            "value": "reprehenderit dolor occaecat"
+                          }
+                        ],
+                        "message": [
+                          {
+                            "key": "minim Lorem ullamco laboris ut",
+                            "value": "elit"
+                          },
+                          {
+                            "key": "dolore",
+                            "value": "tempor laborum officia ad in"
+                          },
+                          {
+                            "key": "tempor labore",
+                            "value": "ex"
+                          }
+                        ],
+                        "type": "sync"
+                      }
+                    ],
+                    "VersionStrategy": "increasePatch",
+                    "responseMapping": {
+                      "id": "8H-lrirBvnpJqdn1P_oOC",
+                      "key": "ykvprtmvbqutvrrigpr",
+                      "flow": "fugiat eu dolore",
+                      "domain": "portly-flight.net",
+                      "version": "2.8"
+                    }
+                  },
+                  {
+                    "key": "et",
+                    "labels": [
+                      {
+                        "label": "cillum nulla",
+                        "language": "consequat adipisicing"
+                      },
+                      {
+                        "label": "in consectetur magna irure non",
+                        "language": "fugiat irure in ipsum sed"
+                      },
+                      {
+                        "label": "ea",
+                        "language": "incididunt esse dolore"
+                      }
+                    ],
+                    "views": [
+                      {
+                        "id": "lPQhMvj9EIt1qAAI0AvEd",
+                        "key": "dryxituzccvxshhn",
+                        "flow": "deserunt laboris minim elit",
+                        "domain": "spherical-gym.net",
+                        "version": "5.5",
+                        "type": "dynamicFlutter"
+                      },
+                      {
+                        "id": "EMOwQE9rzwPWtnkbj8-IB",
+                        "key": "dafypokwhquiswzzhvgf",
+                        "flow": "velit cillum aliqua",
+                        "domain": "serpentine-fundraising.info",
+                        "version": "5.9",
+                        "type": "dynamicFlutter"
+                      }
+                    ],
+                    "OnEntry": [
+                      {
+                        "binding": "bindings.zeebe.jobworker",
+                        "order": 1,
+                        "metadata": [
+                          {
+                            "key": "veniam irure cillum",
+                            "value": "ut officia labore ut consequat"
+                          }
+                        ],
+                        "message": [
+                          {
+                            "key": "nostrud proident minim culpa",
+                            "value": "voluptate laborum qui officia"
+                          }
+                        ],
+                        "type": "sync"
+                      }
+                    ],
+                    "VersionStrategy": "increaseMajor",
+                    "responseMapping": {
+                      "id": "YxQtBuFV00XAv5BqY7hzh",
+                      "key": "hzqarpqmkoxksydzjpbt",
+                      "flow": "in cupidatat in proident mollit",
+                      "domain": "silent-meadow.us",
+                      "version": "3.7"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "versionStrategy": {
+        "type": "string",
+        "enum": [
+          "noAction",
+          "increaseMinor",
+          "increaseMajor",
+          "increasePatch"
+        ]
+      },
+      "code": {
+        "type": "object",
+        "properties": {
+          "interface": {
+            "type": "string",
+            "enum": [
+              "TaskMapper",
+              "ResponseDataMapper",
+              "Script",
+              "ExtensionTaskMapper",
+              "FunctionTaskMapper"
+            ]
+          },
+          "code": {
+            "type": "string",
+            "description": "Calistirilacak kodun BASE64 hali."
+          },
+          "location": {
+            "type": "string",
+            "description": "Calistirilacak kodun proje icerisindeki lokasyonu"
+          }
+        },
+        "required": [
+          "code",
+          "location",
+          "interface"
+        ]
+      },
+      "labels": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "Kullaniciya gosterilecek metin icerigidir."
+            },
+            "language": {
+              "type": "string",
+              "description": "ISO 639 formatinda metnin dil kodudur. "
+            }
+          },
+          "required": [
+            "label",
+            "language"
+          ]
+        },
+        "description": "Kullaniciya gosterilecek icerikler icin coklu dil secenekli icerik kumesidir."
+      },
+      "transition": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Gecisin anahtar degeridir. Gecis talebinde kullanilir. Akis ozelinde teklidir."
+          },
+          "type": {
+            "type": "string",
+            "description": "Kavramsaldir. Gecisin turunu belirler.",
+            "enum": [
+              "forward",
+              "back",
+              "self"
+            ]
+          },
+          "target": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Gecis basarili tamamlandiginda erisecegi asamadir. Bos gecilmesi durumunda bulundugu asama kabul edilir. Bos durumda type self olmalidir."
+          },
+          "labels": {
+            "$ref": "#/components/schemas/labels",
+            "description": "Cok dilli gecis ismidir."
+          },
+          "versionStrategy": {
+            "$ref": "#/components/schemas/versionStrategy",
+            "description": "Basirili gecis sonnasinda versiyon artis strajesi."
+          },
+          "schema": {
+            "type": "string",
+            "description": "Gecisi calistirmak icin gonderilmesi gerken veri deseni."
+          },
+          "timer": {
+            "type": "object",
+            "properties": {
+              "reset": {
+                "type": "string",
+                "enum": [
+                  "never",
+                  "stateEntry"
+                ],
+                "description": "Zamanlayici hangi durumlarda sifirlanacak"
+              },
+              "duration": {
+                "type": "string",
+                "format": "duration",
+                "description": "Sure bilgisi. ISO 8601 formatindadir."
+              },
+              "payload": {
+                "$ref": "#/components/schemas/code",
+                "description": "Zamanlayici ile tetiklenecek transition icin gecilecek veri varsa, o verilerle ilgili bilgi kumesinin saglanmasi icin gereken kod referansi."
+              }
+            },
+            "required": [
+              "reset",
+              "duration",
+              "payload"
+            ],
+            "description": "Otomatik olarak gecis calisacak ise zamanlama bilgisi."
+          },
+          "onExecute": {
+            "description": "Gecis tetiklendiginde calistirilacak goveleri tanimlar.",
+            "$ref": "#/components/schemas/tasks"
+          },
+          "views": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/reference"
+            },
+            "description": "Geciste kullanilacak arabirim bilgileri"
+          },
+          "rule": {
+            "$ref": "#/components/schemas/code",
+            "description": "Zamanlayici ile tetiklenecek transition icin gecilecek veri varsa, o verilerle ilgili bilgi kumesinin saglanmasi icin gereken kod referansi."
+          },
+          "triggers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "mapping": {
+                  "$ref": "#/components/schemas/code",
+                  "description": "Zamanlayici ile tetiklenecek transition icin gecilecek veri varsa, o verilerle ilgili bilgi kumesinin saglanmasi icin gereken kod referansi."
+                },
+                "task": {
+                  "$ref": "#/components/schemas/code",
+                  "description": "Zamanlayici ile tetiklenecek transition icin gecilecek veri varsa, o verilerle ilgili bilgi kumesinin saglanmasi icin gereken kod referansi."
+                }
+              },
+              "required": [
+                "mapping",
+                "task"
+              ]
+            },
+            "description": "Dapr input binding ile transiton tetikleme amaciyla kullanilir. ornegin kafka mesaji ile akis baslatma yada ilerletme."
+          }
+        },
+        "required": [
+          "key",
+          "labels",
+          "versionStrategy",
+          "schema",
+          "timer",
+          "onExecute",
+          "views",
+          "rule",
+          "triggers",
+          "type"
+        ]
+      },
+      "reference": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Kaydin UUID tekil numarasidir."
+          },
+          "key": {
+            "type": "string",
+            "description": "Eger var ise kaydin daha okunabilir anahtar degeridir."
+          },
+          "flow": {
+            "type": "string",
+            "description": "Kaydin hangi akista bulundugu bilgisidir.."
+          },
+          "domain": {
+            "type": "string",
+            "description": "Kaydin bulundugu akisin hangi domain uzerinde bulundugu bilgisidir."
+          },
+          "version": {
+            "type": "string",
+            "description": "Kaydin atama yapildi andaki versiyon bilgisidir."
+          },
+          "meta": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        "required": [
+          "id",
+          "key",
+          "flow",
+          "domain",
+          "version",
+          "meta"
+        ]
+      },
+      "tasks": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "order": {
+              "type": "integer",
+              "description": "Gorevin calisma sirasi. Ayni siradaki gorevler paralel calistirilir."
+            },
+            "task": {
+              "$ref": "#/components/schemas/reference"
+            },
+            "mapping": {
+              "$ref": "#/components/schemas/code",
+              "description": "Zamanlayici ile tetiklenecek transition icin gecilecek veri varsa, o verilerle ilgili bilgi kumesinin saglanmasi icin gereken kod referansi."
+            }
+          },
+          "required": [
+            "order",
+            "mapping",
+            "task"
+          ]
+        },
+        "description": "Calistirilacak gorevler dizisi"
+      },
+      "flow": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "labels": {
+                "$ref": "#/components/schemas/labels",
+                "description": "Cok dilli gecis ismidir."
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "flow",
+                  "subflow",
+                  "process"
+                ]
+              },
+              "timeout": {
+                "$ref": "#/components/schemas/transition"
+              },
+              "extensions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/reference"
+                }
+              },
+              "features": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/reference"
+                }
+              },
+              "functions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/reference"
+                }
+              },
+              "sharedTransitions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "transition": {
+                      "$ref": "#/components/schemas/transition"
+                    },
+                    "availableIn": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "transition",
+                    "availableIn"
+                  ]
+                }
+              },
+              "startTransition": {
+                "$ref": "#/components/schemas/transition"
+              },
+              "states": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/state"
+                }
+              }
+            },
+            "required": [
+              "timeout",
+              "type",
+              "labels",
+              "functions",
+              "sharedTransitions",
+              "features",
+              "startTransition",
+              "states"
+            ]
+          }
+        },
+        "required": [
+          "key",
+          "version",
+          "domain",
+          "tags",
+          "attributes"
+        ]
+      },
+      "state": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "labels": {
+            "$ref": "#/components/schemas/labels",
+            "description": "Cok dilli gecis ismidir."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "start",
+              "wizard",
+              "normal",
+              "finish"
+            ]
+          },
+          "transitions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/transition"
+            }
+          },
+          "views": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/reference"
+            }
+          },
+          "responses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "mapping": {
+                  "$ref": "#/components/schemas/code",
+                  "description": "Zamanlayici ile tetiklenecek transition icin gecilecek veri varsa, o verilerle ilgili bilgi kumesinin saglanmasi icin gereken kod referansi."
+                }
+              },
+              "required": [
+                "key",
+                "mapping"
+              ]
+            },
+            "description": "Akis ilgili asamada iken akis orneginin verilerinin donus kumelerini belirlemek icin kullanilan mappingler tanimlanir. Ozellikle guvenlik ve donus modelini gorunumler icin hafiflestirmek icin kullanilir."
+          },
+          "onFirstEntry": {
+            "description": "Gecis tetiklendiginde calistirilacak goveleri tanimlar.",
+            "$ref": "#/components/schemas/tasks"
+          },
+          "onFirstExit": {
+            "description": "Gecis tetiklendiginde calistirilacak goveleri tanimlar.",
+            "$ref": "#/components/schemas/tasks"
+          },
+          "onEntry": {
+            "description": "Gecis tetiklendiginde calistirilacak goveleri tanimlar.",
+            "$ref": "#/components/schemas/tasks"
+          },
+          "onExit": {
+            "description": "Gecis tetiklendiginde calistirilacak goveleri tanimlar.",
+            "$ref": "#/components/schemas/tasks"
+          },
+          "versionStrategy": {
+            "$ref": "#/components/schemas/versionStrategy",
+            "description": "Basirili gecis sonnasinda versiyon artis strajesi."
+          }
+        },
+        "required": [
+          "transitions",
+          "views",
+          "responses",
+          "key",
+          "labels",
+          "onFirstEntry",
+          "onFirstExit",
+          "onEntry",
+          "onExit",
+          "versionStrategy",
+          "type"
+        ]
+      }
+    },
+    "securitySchemes": {}
+  },
+  "servers": [],
+  "security": []
+}

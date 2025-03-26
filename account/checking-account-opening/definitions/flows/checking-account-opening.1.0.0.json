@@ -182,7 +182,7 @@
                 },
                 "mapping": {
                   "_comment": "Code base64 olarak pipeline icerisinde donusturulerek json icerisinde runtime icerisinde saklanir.",
-                  "location": "/account/checking-account-opening/src/opening/CheckingAccountCreateMapping.cs"
+                  "code": "/account/checking-account-opening/src/opening/CheckingAccountCreateMapping.cs"
                 }
               }
             ]

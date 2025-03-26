@@ -78,7 +78,17 @@
             "rule": "#instance.#data.$.attributes.responses.evaluate-response = 200",
             "target": "waiting-reedem",
             "views": [],
-            "onExecuteTasks": []
+            "onExecuteTasks": [
+              {
+                "key": "task_1742795966826",
+                "task": {
+                  "key": "checking-account-available-currencies",
+                  "domain": "account",
+                  "version": "1.0.1",
+                  "flow": ""
+                }
+              }
+            ]
           },
           {
             "key": "request-inappropriate",

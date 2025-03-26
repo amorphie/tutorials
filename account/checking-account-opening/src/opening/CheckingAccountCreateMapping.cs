@@ -18,10 +18,10 @@ public class CheckingAccountCreateMapping : Amorphie.IMapping
 
         string jsonContent = JsonSerializer.Serialize(requestBody);
 
-         upRequest.HttpRequestMessage.Content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+        upRequest.HttpRequestMessage.Content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
         return Ok();
-    }
+    } 
 
     public IActionResult ResponseHandler(
            Response downResponse,
@@ -46,7 +46,7 @@ public class CheckingAccountCreateMapping : Amorphie.IMapping
             instance.data.attributes.account.number = responseBody.account.number;
             instance.data.attributes.account.suffix = responseBody.account.suffix;
         }
-        
+
         return Ok();
 
     }
