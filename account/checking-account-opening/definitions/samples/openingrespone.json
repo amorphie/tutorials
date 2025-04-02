@@ -1,0 +1,36 @@
+{
+    "data": {
+      "attributes": {
+        "responses": {
+          "openingResponse": 200
+        },
+        "id": "instance-123",
+        "status": "active",
+        "createdAt": "2025-03-15T10:30:45Z"
+      },
+      "type": "instance",
+      "relationships": {
+        "workflow": {
+          "id": "workflow-456",
+          "type": "workflow"
+        }
+      }
+    },
+    "runtime": {
+      "context": "production",
+      "version": "1.2.3",
+      "executionId": "exec-789"
+    },
+    "definitions": {
+      "openingDefinition": {
+        "type": "response",
+        "allowedValues": [200, 467],
+        "required": true
+      },
+      "closingDefinition": {
+        "type": "response",
+        "allowedValues": [200, 300, 400],
+        "required": false
+      }
+    }
+  }
