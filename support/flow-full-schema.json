@@ -788,32 +788,45 @@
             "description": "Gecisi calistirmak icin gonderilmesi gerken veri deseni."
           },
           "timer": {
-            "type": "object",
-            "properties": {
-              "reset": {
-                "type": "string",
-                "enum": [
-                  "never",
-                  "stateEntry"
-                ],
-                "description": "Zamanlayici hangi durumlarda sifirlanacak"
+            "oneOf": [
+              {
+                "type": "null"
               },
-              "duration": {
-                "type": "string",
-                "format": "duration",
-                "description": "Sure bilgisi. ISO 8601 formatindadir."
-              },
-              "payload": {
-                "$ref": "#/components/schemas/code",
-                "description": "Zamanlayici ile tetiklenecek transition icin gecilecek veri varsa, o verilerle ilgili bilgi kumesinin saglanmasi icin gereken kod referansi."
+              {
+                "type": "object",
+                "properties": {
+                  "reset": {
+                    "type": "string",
+                    "enum": [
+                      "never",
+                      "stateEntry"
+                    ],
+                    "description": "Zamanlayici hangi durumlarda sifirlanacak"
+                  },
+                  "duration": {
+                    "type": "string",
+                    "format": "duration",
+                    "description": "Sure bilgisi. ISO 8601 formatindadir."
+                  },
+                  "payload": {
+                    "$ref": "#/components/schemas/code",
+                    "description": "Zamanlayici ile tetiklenecek transition icin gecilecek veri varsa, o verilerle ilgili bilgi kumesinin saglanmasi icin gereken kod referansi."
+                  }
+                },
+                "required": [
+                  "reset",
+                  "duration",
+                  "payload"
+                ]
               }
-            },
-            "required": [
-              "reset",
-              "duration",
-              "payload"
             ],
-            "description": "Otomatik olarak gecis calisacak ise zamanlama bilgisi."
+            "description": "Otomatik olarak gecis calisacak ise zamanlama bilgisi.",
+            "if": {
+              "$ref": "/flow/attributes/startTransition/transition"
+            },
+            "then": {
+              "type": "null"
+            }
           },
           "onExecute": {
             "description": "Gecis tetiklendiginde calistirilacak goveleri tanimlar.",
