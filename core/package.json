@@ -1,0 +1,8 @@
+{
+    "name": "@amorphie/definitions-core",
+    "version": "1.0.0",
+    "files": [
+        "mappings/",
+        "schemas/"
+    ]
+}

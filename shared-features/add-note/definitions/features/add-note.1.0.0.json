@@ -1,0 +1,50 @@
+{
+    "key": "add-note",
+    "domain": "shared-features",
+    "version": "1.0.0",
+    "tags": [
+        "shared",
+        "feature"
+    ],
+    "attributes": {
+        "_comment": "Akis iceriside akis ornegine note eklemek icin kullanilir.",
+        "transition": {
+            "key": "add-note",
+            "type": "forward",
+            "labels": [
+                {
+                    "label": "Not Ekle",
+                    "language": "tr"
+                },
+                {
+                    "label": "Add Note",
+                    "language": "en"
+                }
+            ],
+            "schema": {
+                "key": "add-note",
+                "flow": "schemas",
+                "domain": "account",
+                "version": "1.0"
+            },
+            "target": "approval",
+            "versionStrategy": "noAction",
+            "views": [
+                {
+                    "key": "checking-account-input-df",
+                    "flow": "views",
+                    "domain": "account",
+                    "version": "1.0"
+                },
+                {
+                    "key": "checking-account-input-formio",
+                    "flow": "views",
+                    "domain": "account",
+                    "version": "1.0"
+                }
+            ],
+            "onExecuteTasks": []
+        }
+    }
+}
+}

@@ -1,0 +1,96 @@
+{
+  "key": "mappings",
+  "domain": "core",
+  "version": "1.0",
+  "tags": [
+    "amorphie",
+    "core"
+  ],
+  "attributes": {
+    "type": "flow",
+    "labels": [
+      {
+        "label": "Mappings",
+        "language": "en"
+      },
+      {
+        "label": "Veri Haritalari",
+        "language": "tr"
+      }
+    ],
+    "functions": [],
+    "sharedTransitions": [],
+    "startTransition": {
+      "key": "start",
+      "target": "started",
+      "versionStrategy": "noAction"
+    },
+    "states": [
+      {
+        "key": "started",
+        "type": "normal",
+        "labels": [
+          {
+            "label": "Akis Basladi",
+            "language": "tr"
+          },
+          {
+            "label": "Started",
+            "language": "en"
+          }
+        ],
+        "views": [],
+        "transitions": []
+      },
+      {
+        "key": "draft",
+        "type": "normal",
+        "labels": [
+          {
+            "label": "Eskiz",
+            "language": "tr"
+          },
+          {
+            "label": "Draaft",
+            "language": "en"
+          }
+        ],
+        "views": [],
+        "transitions": []
+      },
+      {
+        "key": "active",
+        "type": "normal",
+        "versionStrategy": "noAction",
+        "labels": [
+          {
+            "label": "Aktif",
+            "language": "tr"
+          },
+          {
+            "label": "Active",
+            "language": "en"
+          }
+        ],
+        "views": [],
+        "transitions": []
+      },
+     
+      {
+        "key": "inactive",
+        "versionStrategy": "noAction",
+        "labels": [
+          {
+            "label": "Pasif",
+            "language": "tr"
+          },
+          {
+            "label": "Inactive",
+            "language": "en"
+          }
+        ],
+        "type": "normal"
+      }
+    ]
+  }
+}

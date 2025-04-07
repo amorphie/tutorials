@@ -1,0 +1,18 @@
+{
+  "_comment": "Direk json referans sema linki icin kullanilir.",
+  "key": "reference-as-raw",
+  "domain": "core",
+  "version": "1.0.0",
+  "tags": [
+    "core",
+    "json-schema"
+  ],
+  "attributes": {
+    "header": {
+      "#response.#body.schema-type": "#instance.#data.$.attributes.type"
+    },
+    "body": {
+      "#response.#body.$": "#instance.#data.$.attributes.schema"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+    "_comment": "Kok sema. Referans yonetimi icin kullanilir",
+    "key": "reference",
+    "domain": "core",
+    "version": "1.0",
+    "tags": [
+        "core"
+    ],
+    "attributes": {
+        "type": "JsonSchema",
+        "schema":{
+          "type": "object",
+          "properties": {
+              "id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "description": "Kaydin UUID tekil numarasidir."
+              },
+              "key": {
+                  "type": "string",
+                  "description": "Eger var ise kaydin daha okunabilir anahtar degeridir."
+              },
+              "flow": {
+                  "type": "string",
+                  "description": "Kaydin hangi akista bulundugu bilgisidir."
+              },
+              "domain": {
+                  "type": "string",
+                  "description": "Kaydin bulundugu akisin hangi domain uzerinde bulundugu bilgisidir."
+              },
+              "version": {
+                  "type": "string",
+                  "description": "Kaydin atama yapildigi andaki versiyon bilgisidir."
+              },
+              "meta": {
+                  "type": "object",
+                  "properties": {}
+              }
+          },
+          "required": [
+              "flow",
+              "domain",
+              "version"
+          ],
+          "oneOf": [
+              { "required": ["id"] },
+              { "required": ["key"] }
+          ]
+      }
+      
+    }
+}
