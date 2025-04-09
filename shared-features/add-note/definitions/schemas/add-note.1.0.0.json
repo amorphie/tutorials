@@ -1,0 +1,27 @@
+{
+    "key": "add-note",
+    "domain": "account",
+    "version": "1.0.0",
+    "tags": [
+        "account",
+        "checking"
+    ],
+    "attributes": {
+        "type": "JsonSchema",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "subject": {
+                    "type": "string"
+                },
+                "details": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "subject"
+            ]
+           
+        }
+    }
+}

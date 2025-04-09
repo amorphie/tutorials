@@ -31,13 +31,7 @@
             "versionStrategy": "noAction",
             "views": [
                 {
-                    "key": "checking-account-input-df",
-                    "flow": "views",
-                    "domain": "account",
-                    "version": "1.0"
-                },
-                {
-                    "key": "checking-account-input-formio",
+                    "key": "add-note-input-df",
                     "flow": "views",
                     "domain": "account",
                     "version": "1.0"
@@ -46,5 +40,4 @@
             "onExecuteTasks": []
         }
     }
-}
 }
