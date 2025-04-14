@@ -1,0 +1,7 @@
+{
+    "name": "@amorphie/shared-features",
+    "version": "1.0.0",
+    "files": [
+        "add-node/"
+    ]
+}

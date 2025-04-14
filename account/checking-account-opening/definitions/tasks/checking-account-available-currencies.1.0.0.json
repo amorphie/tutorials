@@ -7,7 +7,7 @@
         "checking"
     ],
     "attributes": {
-        "binding": "bindings.http",
+        "binding": "dapr.bindings.http",
         "configuration": "fora-services",
         "metadata": {
             "url": "/fora/DigitalServices/AccountService.svc/accounts/utilities/availableCurrencies/checking",

@@ -1,5 +1,5 @@
 {
-  "name": "account",
+  "name": "@amorphie/account",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,10 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@amorphie/definitions-core": "^1.0.0"
-  }
+    "@amorphie/definitions-core": "^1.0.0",
+    "@amorphie/shared-features": "^1.0.0"
+  },
+  "files": [
+    "checking-account-opening/"
+  ]
 }

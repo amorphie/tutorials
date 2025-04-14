@@ -1,5 +1,5 @@
 {
-    "_comment":"JsonSchema | OpenApi20 olabilir. Alanlardaki mapping alani instance data icinde nereye map edilecegini belirler. errorMessage ise bir hata var ise bad request icinde donulur. ayrica on yuz arabirimde gostermek icin kullanir.",
+    "_comment": "JsonSchema | OpenApi20 olabilir. Alanlardaki mapping alani instance data icinde nereye map edilecegini belirler. errorMessage ise bir hata var ise bad request icinde donulur. ayrica on yuz arabirimde gostermek icin kullanir.",
     "key": "checking-account-input",
     "domain": "account",
     "version": "1.0.0",
@@ -15,7 +15,12 @@
                 "currency": {
                     "type": "string",
                     "pattern": "^(AED|AFN|ALL|AMD|ANG|AOA|ARS|AUD|AWG|AZN|BAM|BBD|BDT|BGN|BHD|BIF|BMD|BND|BOB|BRL|BSD|BTN|BWP|BYN|BZD|CAD|CDF|CHF|CLP|CNY|COP|CRC|CUC|CUP|CVE|CZK|DJF|DKK|DOP|DZD|EGP|ERN|ETB|EUR|FJD|FKP|GBP|GEL|GGP|GHS|GIP|GMD|GNF|GTQ|GYD|HKD|HNL|HRK|HTG|HUF|IDR|ILS|IMP|INR|IQD|IRR|ISK|JEP|JMD|JOD|JPY|KES|KGS|KHR|KMF|KPW|KRW|KWD|KYD|KZT|LAK|LBP|LKR|LRD|LSL|LYD|MAD|MDL|MGA|MKD|MMK|MNT|MOP|MRU|MUR|MVR|MWK|MXN|MYR|MZN|NAD|NGN|NIO|NOK|NPR|NZD|OMR|PAB|PEN|PGK|PHP|PKR|PLN|PYG|QAR|RON|RSD|RUB|RWF|SAR|SBD|SCR|SDG|SEK|SGD|SHP|SLL|SOS|SPL|SRD|STN|SVC|SYP|SZL|THB|TJS|TMT|TND|TOP|TRY|TTD|TVD|TWD|TZS|UAH|UGX|USD|UYU|UZS|VEF|VND|VUV|WST|XAF|XCD|XDR|XOF|XPF|YER|ZAR|ZMW|ZWL)$",
-                    "mapping": "#instance.#data.$.attributes.currency",
+                    "mapping": {
+                        "target": "attributes.currency",
+                        "operation": "direct",
+                        "mode": "merge",
+                        "default": "USD"
+                    },
                     "errorMessage": {
                         "type": {
                             "tr": "Para birimi alanı bir metin (string) olmalıdır.",
@@ -32,7 +37,12 @@
                     "pattern": "^[a-zA-Z0-9\\s-]{3,50}$",
                     "minLength": 3,
                     "maxLength": 50,
-                    "mapping": "#instance.#data.$.attributes.accountName",
+                    "mapping": {
+                        "target": "attributes.accountName",
+                        "operation": "direct",
+                        "mode": "merge",
+                        "default": null
+                    },
                     "errorMessage": {
                         "type": {
                             "tr": "İsim alanı bir metin (string) olmalıdır.",

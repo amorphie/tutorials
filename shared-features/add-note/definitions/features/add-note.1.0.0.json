@@ -31,7 +31,7 @@
             "versionStrategy": "noAction",
             "views": [
                 {
-                    "key": "add-note-input-df",
+                    "key": "add-note-df",
                     "flow": "views",
                     "domain": "account",
                     "version": "1.0"
